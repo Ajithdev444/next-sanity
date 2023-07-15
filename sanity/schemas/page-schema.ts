@@ -6,7 +6,7 @@ const page = {
         {
             name: "title",
             title: "Title",
-            type: "string"
+            type: "string",
         },
         {
             name: "slug",
@@ -16,6 +16,11 @@ const page = {
                 source: "title",
                 maxLenght: 96,
             },
+        },
+        {
+            name: "subtitle",
+            title: "Subtitle",
+            type: "string"
         },
         {
             name: "content",

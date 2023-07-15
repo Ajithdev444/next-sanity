@@ -13,8 +13,8 @@ export default async function Project({params}: Props){
             <h1 className="bg-gradient-to-r drop-shadow
              from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent text-7xl 
              font-extrabold">{project.name}</h1>
-            <a href={project.url} title="view project" target="_blank" rel="noopener noreferrer
-            " className="bg-gray-100 rounded-lg text-gray-500 font-bold py-3 px-4 whitespace-nowrap
+            <a href={project.url} title="view project" target="_blank" rel="noopener noreferrer"
+             className="bg-gray-100 rounded-lg text-gray-500 font-bold py-3 px-4 whitespace-nowrap
             hover:bg-pink-500 hover:text-pink-100 transition">View Project</a>
             </header>
 
