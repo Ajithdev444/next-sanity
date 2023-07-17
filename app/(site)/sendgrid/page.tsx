@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Form } from "@/components/contactForm/Form";
+export const dynamic = 'auto'
 const Home: NextPage = () => {
   return (
     <div>

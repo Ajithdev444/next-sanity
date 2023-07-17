@@ -1,9 +1,12 @@
 import React from 'react'
 import { getTeams } from '@/sanity/sanity-utils'
 import Link from 'next/link'
+export const dynamic = 'auto'
+
 
 export default async function Team() {
     const teams = await getTeams()
+
   return (
     <div>
         {teams.map((team) => ( 
