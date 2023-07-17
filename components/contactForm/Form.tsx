@@ -23,6 +23,7 @@ export const Form = () => {
   const [messageState, setMessageState] = useState("");
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(values)
     const errors = validate(values);
     if (errors && Object.keys(errors).length > 0) {
       return setErrors(errors);
@@ -46,9 +47,9 @@ export const Form = () => {
           setMessageState(res.data.message);
         }
       })
-      .catch((err) => {
+      .catch((error) => {
         setLoading(false);
-        setMessageState(String(err.message));
+        setMessageState(String(error.message));
       });
     setLoading(false);
   };
@@ -62,7 +63,7 @@ export const Form = () => {
       [e.target.name]: e.target.value,
     }));
   };
-  console.log(values)
+  
   return (
     <form onSubmit={handleSubmit}>
       <Input
