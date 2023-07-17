@@ -1,5 +1,4 @@
 'use client'
-import axios from "axios";
 import { useState } from "react";
 import { RiLoader5Fill } from "react-icons/ri";
 import { validate } from "@/utils/validate";
@@ -20,7 +19,7 @@ export const Form = () => {
   const [errors, setErrors] = useState<IErrors>({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [messageState, setMessageState] = useState("");
+  const [messageState, setMessageState] = useState<string>("");
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(values)
@@ -29,23 +28,17 @@ export const Form = () => {
       return setErrors(errors);
     }
     setErrors({});
-    setLoading(true);
-    axios
-      .post("/api/mail", {
-        name: values.name,
-        email: values.email,
-        message: values.message,
+    
+    await fetch("/api/mail", {
+      method: 'POST',
+      body: JSON.stringify(values)
       })
+      .then((res) => res.json())
       .then((res) => {
-        if (res.status === 200) {
-          setValues({ name: "", email: "", message: "" });
-          setLoading(false);
-          setSuccess(true);
-          setMessageState(res.data.message);
-        } else {
-          setLoading(false);
-          setMessageState(res.data.message);
-        }
+        setMessageState(res.message)
+        setSuccess(true)
+        setLoading(false)
+        setValues({ name: "", email: "", message: "" });
       })
       .catch((error) => {
         setLoading(false);
