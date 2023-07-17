@@ -2,7 +2,7 @@ import '../globals.css'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { getPages } from '@/sanity/sanity-utils'
-export const dynamic = 'force-dynamic'
+export const revalidate = false
 
 
 const inter = Inter({ subsets: ['latin'] })
