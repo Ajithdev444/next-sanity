@@ -4,6 +4,7 @@ import { Gallery } from "@/types/Gallery";
 import { Team } from "@/types/Team";
 import { createClient, groq } from "next-sanity";
 import clientConfig from "./config/client-config"
+export const revalidate = 60
 
 export async function getProjects():Promise<Project[]> {
 
@@ -103,7 +104,7 @@ export async function getTeams(): Promise<Team[]>{
             "slug": slug.current,
             location,
             department,
-        }`
+        }`, { next: { revalidate: 60 } }
     )
 }
 export async function getTeam(slug: string): Promise<Team>{
