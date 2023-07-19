@@ -104,9 +104,7 @@ export async function getTeams(): Promise<Team[]>{
             "slug": slug.current,
             location,
             department,
-        }`, { next: { fields: ['name','number','slug', 'location', 'department','qualifications',
-        'aboutthejob',
-        'responsibilities',] } }
+        }`, 
     )
 }
 export async function getTeam(slug: string): Promise<Team>{
