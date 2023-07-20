@@ -16,7 +16,7 @@ export async function getProjects():Promise<Project[]> {
             name,
             "slug": slug.current,
             "image": image.asset->url,
-        }`,
+        }`,{ next: { revalidate: 3 } }
     )
 }
 
@@ -102,7 +102,7 @@ export async function getTeams(): Promise<Team[]>{
             "slug": slug.current,
             location,
             department,
-        }`,
+        }`,{ next: { revalidate: 3 } }
     )
 }
 export async function getTeam(slug: string): Promise<Team>{
