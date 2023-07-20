@@ -3,7 +3,7 @@ import { NextApiResponse } from "next";
 export default async function handler( res: NextApiResponse) {
     try {
 
-        await res.revalidate('/true');
+        await res.revalidate('/team');
         return res.json({ revalidated: true });
 
     } catch (err) {
