@@ -16,7 +16,7 @@ export async function getProjects():Promise<Project[]> {
             name,
             "slug": slug.current,
             "image": image.asset->url,
-        }`,{ cache: 'no-store'}
+        }`,
     )
 }
 
@@ -45,7 +45,7 @@ export async function getPages(): Promise<Page[]>{
             _createdAt,
             title,
             "slug": slug.current,
-        }`,{ cache: 'no-store'}
+        }`,
     )
 }
 
@@ -102,7 +102,7 @@ export async function getTeams(): Promise<Team[]>{
             "slug": slug.current,
             location,
             department,
-        }`,{ cache: 'no-store'}
+        }`,
     )
 }
 export async function getTeam(slug: string): Promise<Team>{
